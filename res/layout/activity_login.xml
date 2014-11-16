@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.ufjf.gpsfleet.LoginActivity"
+    android:background="@color/gray_ufjf" >
+    
+    <TextView
+         android:id="@+id/labelUser"
+         android:text="@string/userLabel"
+         android:layout_centerVertical="true"
+         android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:textColor="@color/black"
+		 android:textStyle="bold"
+		 android:layout_marginBottom="15dp"
+		 android:layout_marginRight="2dp"
+     />
+
+    <EditText
+        android:id="@+id/fieldUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/labelUser"
+        android:layout_alignBaseline="@id/labelUser"
+        android:ems="10"
+        android:inputType="text" 
+        android:background="@drawable/selector_edit_text"
+        android:layout_marginBottom="15dp">
+        
+    </EditText>
+    
+    <TextView 
+        android:id="@+id/labelPassword"
+        android:text="@string/passwordLabel"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/labelUser"
+        android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/black"
+		android:textStyle="bold"
+		android:layout_marginRight="2dp"
+    />
+    
+    <EditText
+        android:id="@+id/fieldPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/labelPassword"
+        android:layout_alignLeft="@id/fieldUser"
+        android:layout_below="@id/fieldUser"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:background="@drawable/selector_edit_text" />
+    
+    <TextView
+        android:id="@+id/labelDeniedAccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/labelPassword"
+        android:layout_below="@id/labelPassword"
+        android:text="@string/deniedAccessLabel"
+        android:visibility="invisible"
+        android:textColor="@color/red_ufjf" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/fieldPassword"
+        android:layout_below="@+id/labelDeniedAccess"
+        android:background="@drawable/selector_button_login" />
+
+</RelativeLayout>

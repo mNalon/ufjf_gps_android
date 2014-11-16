@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     	 android:id="@+id/rootChatLayout"
+         android:orientation="vertical"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent">
+
+     <ListView android:id="@id/android:list"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:drawSelectorOnTop="false"/>
+
+     <RelativeLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:background="@color/gray_ufjf"
+			android:layout_marginTop="5dp"
+			android:layout_weight="0"
+			android:padding="5dp"
+			 >
+
+				<Button
+				    android:id="@+id/button_send"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentRight="true"
+				    android:layout_alignParentTop="true"
+				    android:text="@string/sendLabel"
+				    android:background="@drawable/selector_buttons_default"
+				    android:layout_marginLeft="2dp"
+				    android:textColorHighlight="@color/gray_ufjf"/>
+
+				<EditText
+				    android:id="@+id/textToSend"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_alignBaseline="@+id/button_send"
+				    android:layout_alignBottom="@+id/button_send"
+				    android:layout_toLeftOf="@+id/button_send"
+				    android:background="@drawable/selector_edit_text"
+				    android:ems="10"
+				    android:inputType="text" >
+				</EditText>
+				
+	</RelativeLayout>
+ </LinearLayout>
