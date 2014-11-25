@@ -1,5 +1,6 @@
 package br.ufjf.gpsfleet.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ufjf.gpsfleet.R;
@@ -14,10 +15,12 @@ import android.widget.TextView;
 public class ChatAdapter extends ArrayAdapter<RowChatInfo>{
 	
 	private final LayoutInflater mInflater;
+	private final Context mContext;
 
-	public ChatAdapter(Context context, int resource) {
-		super(context, resource);
+	public ChatAdapter(Context context, int resource, ArrayList<RowChatInfo> list) {
+		super(context, resource, list);
 		mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		mContext = context;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -43,6 +46,9 @@ public class ChatAdapter extends ArrayAdapter<RowChatInfo>{
             view = convertView;
         }
         RowChatInfo item = getItem(position);
+        if(position%2 == 0){
+        	view.setBackgroundColor(mContext.getResources().getColor(R.color.gray_ufjf));
+        }
         TextView messageLabel = (TextView)view.findViewById(R.id.message);
         TextView timeStampLabel = (TextView)view.findViewById(R.id.time_stamp);
         

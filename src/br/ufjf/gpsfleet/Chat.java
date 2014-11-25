@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.ufjf.gpsfleet.listeners.ChatListener;
+import br.ufjf.gpsfleet.utils.ChatAdapter;
+import br.ufjf.gpsfleet.utils.RowChatInfo;
 import android.support.v4.app.ListFragment;
 import android.app.Activity;
 import android.os.Bundle;
@@ -22,18 +24,19 @@ import android.widget.Switch;
 public class Chat extends ListFragment{
 	
 	public ListAdapter listAdapter;
-	public ArrayAdapter<String> adapter; //esse cara tem que sair, deve usar um listAdapter para customizar
-	public List<String> listChat;
+	public ChatAdapter adapter; //esse cara tem que sair, deve usar um listAdapter para customizar
+	public ArrayList<RowChatInfo> listChat;
 	public Button sendButton;
 	public EditText textToSend;
+	public Thread threadPoll;
+	public Thread threadRefresh;
 	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		Activity ownerActivity = getActivity();
-	    listChat = new ArrayList<String>(Arrays.asList(new String[] {"Não há nenhuma mensagem"}));
-	    adapter = new ArrayAdapter<String>(ownerActivity,
-	        android.R.layout.simple_list_item_1, listChat);
+	    listChat = new ArrayList<RowChatInfo>();
+	    adapter = new ChatAdapter(ownerActivity,android.R.layout.simple_list_item_1,listChat);
 	    setListAdapter(adapter);
 	    adapter.setNotifyOnChange(true);
 	    ChatListener chatListener = new ChatListener(this);
@@ -42,10 +45,16 @@ public class Chat extends ListFragment{
 	    
 	    sendButton = (Button) ownerActivity.findViewById(R.id.button_send);
 	    sendButton.setOnClickListener(chatListener.sendMessage());
-	    
 	}
 
-	  @Override
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+	}
+	
+	
+	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
     // do something with the data
 	}

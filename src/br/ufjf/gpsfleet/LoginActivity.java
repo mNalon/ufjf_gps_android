@@ -1,10 +1,13 @@
 package br.ufjf.gpsfleet;
 
 import br.ufjf.gpsfleet.listeners.LoginListener;
+import br.ufjf.gpsfleet.network.ChatClient;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
