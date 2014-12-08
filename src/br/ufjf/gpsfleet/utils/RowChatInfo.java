@@ -4,11 +4,23 @@ public class RowChatInfo {
 	public String nickName;
 	public String dateTime;
 	public String message;
+	public String id;
 	
-	public RowChatInfo(String nickName, String dateTime, String message){
+	
+
+	public RowChatInfo(String nickName, String dateTime, String message, String id){
 		this.nickName = nickName;
 		this.dateTime = dateTime;
 		this.message = message;
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getNickName() {

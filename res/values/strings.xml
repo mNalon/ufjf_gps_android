@@ -8,7 +8,8 @@
     <string name="deniedAccessLabel">Acesso Negado</string>
     <string name="title_activity_main">UFJF GPS</string>
     <string name="sendLabel">Enviar</string>
-    <string name="url_chat_host">http://192.168.0.5:8080</string>
+    <string name="refresh">Atualizar</string>
+    <string name="url_chat_host">http://192.168.0.2:8080</string>
     <string name="path_post_message">/chat/message</string>
     <string name="path_get_all_messages">/chat/all</string>
 </resources>
