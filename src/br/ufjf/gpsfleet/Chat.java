@@ -28,11 +28,12 @@ import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 public class Chat extends ListFragment{
 	
 	public ListAdapter listAdapter;
-	public ChatAdapter adapter; //esse cara tem que sair, deve usar um listAdapter para customizar
+	public ChatAdapter adapter; 
 	public ArrayList<RowChatInfo> listChat;
 	public ArrayList<RowChatInfo> downloaded;
 	public Button sendButton;
@@ -133,9 +134,17 @@ public class Chat extends ListFragment{
 						}
 					}
 				}
-				Thread.sleep(10000);
 			} catch (Exception e) {
+				
 				e.printStackTrace();
+				handler.post(new Runnable() {
+					
+					@Override
+					public void run() {
+						progressDialog.hide();
+						Toast.makeText(Chat.this.ownerActivity, "Ocorreu um problema de conexão", Toast.LENGTH_SHORT).show();
+					}
+				});
 			}
 		}
 		

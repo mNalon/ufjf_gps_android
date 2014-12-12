@@ -37,7 +37,7 @@ public final class R {
         public static final int selector_edit_text=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000f;
+        public static final int action_settings=0x7f090010;
         public static final int bt_refresh=0x7f09000a;
         public static final int buttonLogin=0x7f090005;
         public static final int button_send=0x7f090009;
@@ -48,6 +48,7 @@ public final class R {
         public static final int labelUser=0x7f090000;
         public static final int layout_row_chat=0x7f09000b;
         public static final int layout_row_chat_user=0x7f09000e;
+        public static final int main_webview=0x7f09000f;
         public static final int message=0x7f09000c;
         public static final int pager=0x7f090006;
         public static final int rootChatLayout=0x7f090007;
@@ -77,6 +78,8 @@ public final class R {
         public static final int refresh=0x7f060008;
         public static final int sendLabel=0x7f060007;
         public static final int title_activity_main=0x7f060006;
+        /**   <string name="url_chat_host">http://54.148.230.178:80</string> 
+         */
         public static final int url_chat_host=0x7f060009;
         public static final int userLabel=0x7f060002;
     }

@@ -25,6 +25,7 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,12 +43,16 @@ public class ChatClient {
 	private final String pathGetAllMessages;
 	private String TAG_STATUS = "Status_Request";
 	DefaultHttpClient httpclient;
+	private final int TIME_OUT_MILISEC = 5000;
 	
 	public ChatClient(Context context) {
 		this.host = context.getString(R.string.url_chat_host);
 		this.pathPostMessage = context.getString(R.string.path_post_message);
 		this.pathGetAllMessages = context.getString(R.string.path_get_all_messages);
-		this.httpclient = new DefaultHttpClient();
+		
+		final HttpParams httpParams = new BasicHttpParams();
+	    HttpConnectionParams.setConnectionTimeout(httpParams, TIME_OUT_MILISEC);
+		this.httpclient = new DefaultHttpClient(httpParams);
 	}
 	
 	/**
@@ -100,7 +105,7 @@ public class ChatClient {
 	    
 	}
 	
-	public ArrayList<RowChatInfo> getListOfMessages(){
+	public ArrayList<RowChatInfo> getListOfMessages() throws Exception{
 		releaseConnections();
 		String url = this.host + this.pathGetAllMessages;
 		HttpGet request = new HttpGet(url);
@@ -136,7 +141,7 @@ public class ChatClient {
 //	        }
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw e;
 		} finally{
 //			if(response != null){
 //				EntityUtils.consume(response.getEntity());
