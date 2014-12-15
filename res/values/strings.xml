@@ -5,13 +5,16 @@
     <string name="userLabel">Usuário:</string>
     <string name="passwordLabel">Senha:</string>
     <string name="loginLabel">Entrar</string>
-    <string name="deniedAccessLabel">Acesso Negado</string>
+    <string name="deniedAccessLabel">Ocorreu um erro. Verifique suas informações ou a conexão.</string>
     <string name="title_activity_main">UFJF GPS</string>
     <string name="sendLabel">Enviar</string>
     <string name="refresh">Atualizar</string>
    <!--  <string name="url_chat_host">http://54.148.230.178:80</string> -->
-    <string name="url_chat_host">http://192.168.0.6:8080</string>
+    <string name="url_chat_host">http://192.168.0.3:8080</string>
     <string name="path_post_message">/chat/message</string>
     <string name="path_get_all_messages">/chat/all</string>
+    <string name="url_load_fleet_monitoring_site">https://fleet.ufjf.br/search.php</string>
+    
+    <string name="url_to_make_login">https://fleet.ufjf.br/includes/process_login.php</string>
 </resources>
 			

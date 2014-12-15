@@ -56,16 +56,6 @@
         android:ems="10"
         android:inputType="textPassword"
         android:background="@drawable/selector_edit_text" />
-    
-    <TextView
-        android:id="@+id/labelDeniedAccess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/labelPassword"
-        android:layout_below="@id/labelPassword"
-        android:text="@string/deniedAccessLabel"
-        android:visibility="invisible"
-        android:textColor="@color/red_ufjf" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -73,6 +63,18 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/fieldPassword"
         android:layout_below="@+id/labelDeniedAccess"
-        android:background="@drawable/selector_button_login" />
+        android:background="@drawable/selector_button_login"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/labelDeniedAccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/fieldPassword"
+        android:layout_below="@+id/labelPassword"
+        android:text="@string/deniedAccessLabel"
+        android:textColor="@color/red_ufjf"
+        android:visibility="gone"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

@@ -1,37 +1,51 @@
 package br.ufjf.gpsfleet;
 
+import java.text.AttributedString;
+
 import br.ufjf.gpsfleet.listeners.LoginListener;
 import br.ufjf.gpsfleet.network.ChatClient;
+import br.ufjf.gpsfleet.network.LoginClient;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class LoginActivity extends Activity {
 	
 	Button buttonLogin;
-	EditText userField;
-	EditText passwordField;
-	TextView labelDeniedAccess;
-	LoginListener loginListener;
-	Bundle bundle;
+	public EditText userField;
+	public EditText passwordField;
+	public TextView labelDeniedAccess;		
+	public LoginListener loginListener;
+	private Bundle bundle;
+	public LoginClient loginClient;
+	public ProgressDialog progressDialog;
+	public Handler handler;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		handler = new Handler();
 		
 		loginListener = new LoginListener(this);
 		
+		loginClient = new LoginClient(this);
+		
 	    buttonLogin = (Button) findViewById(R.id.buttonLogin);
 	    buttonLogin.setOnClickListener(loginListener.verifyLogin());
+	    
+	    
 	    
 	    userField = (EditText) findViewById(R.id.fieldUser);
 	    passwordField = (EditText) findViewById(R.id.fieldPassword);
@@ -39,6 +53,10 @@ public class LoginActivity extends Activity {
 	    passwordField.setOnTouchListener(loginListener.touchFields());
 	    
 	    labelDeniedAccess = (TextView) findViewById(R.id.labelDeniedAccess);
+	    
+	    progressDialog = new ProgressDialog(this);
+	    progressDialog.setTitle("Carregando");
+	    progressDialog.setMessage("Fazendo login...");
 	}
 	
 	@Override

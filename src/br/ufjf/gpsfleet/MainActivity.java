@@ -4,6 +4,7 @@ package br.ufjf.gpsfleet;
 import br.ufjf.gpsfleet.adapters.TabsPagerAdapter;
 import br.ufjf.gpsfleet.listeners.ActionBarListener;
 import br.ufjf.gpsfleet.listeners.PageViewChangeListener;
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -12,14 +13,18 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost.OnTabChangeListener;
+import android.widget.Toast;
 import android.app.ActionBar.Tab;
 
+@SuppressLint("ShowToast")
 public class MainActivity extends FragmentActivity {
 	
 	private final String[] tabs = {"Busca","Chat"};
 	ActionBar actionBar;
 	ViewPager viewPager;
 	private TabsPagerAdapter fragmentAdapter;
+	private boolean exitEnabled = false;
+	public static Toast toast;
 	
 
 	@Override
@@ -35,6 +40,7 @@ public class MainActivity extends FragmentActivity {
 		viewPager.setAdapter(fragmentAdapter);
 		viewPager.setOnPageChangeListener(new PageViewChangeListener(actionBar));
 		
+		toast = Toast.makeText(this, "Se deseja realmente sair do aplicativo pressione o botão de voltar novamente", Toast.LENGTH_SHORT);
 		this.createTabs();
 	}
 	
@@ -68,5 +74,32 @@ public class MainActivity extends FragmentActivity {
 			actionBar.addTab(objectTab);
 		}
 	}
+	
+	@Override
+	public void onBackPressed() {
+		if(exitEnabled){
+			toast.cancel();
+			super.onBackPressed();
+		}else{
+			exitEnabled = true;
+			toast.show();
+			Thread disableExitThread = new Thread(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(2000);
+						exitEnabled = false;
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+			disableExitThread.start();
+		}
+		
+	}
+	
+	
 	
 }

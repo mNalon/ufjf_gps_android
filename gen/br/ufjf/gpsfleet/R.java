@@ -39,11 +39,11 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f090010;
         public static final int bt_refresh=0x7f09000a;
-        public static final int buttonLogin=0x7f090005;
+        public static final int buttonLogin=0x7f090004;
         public static final int button_send=0x7f090009;
         public static final int fieldPassword=0x7f090003;
         public static final int fieldUser=0x7f090001;
-        public static final int labelDeniedAccess=0x7f090004;
+        public static final int labelDeniedAccess=0x7f090005;
         public static final int labelPassword=0x7f090002;
         public static final int labelUser=0x7f090000;
         public static final int layout_row_chat=0x7f09000b;
@@ -81,6 +81,8 @@ public final class R {
         /**   <string name="url_chat_host">http://54.148.230.178:80</string> 
          */
         public static final int url_chat_host=0x7f060009;
+        public static final int url_load_fleet_monitoring_site=0x7f06000c;
+        public static final int url_to_make_login=0x7f06000d;
         public static final int userLabel=0x7f060002;
     }
     public static final class style {

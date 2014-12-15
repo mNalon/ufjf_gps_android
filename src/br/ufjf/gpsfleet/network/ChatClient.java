@@ -41,7 +41,7 @@ public class ChatClient {
 	private final String host;
 	private final String pathPostMessage;
 	private final String pathGetAllMessages;
-	private String TAG_STATUS = "Status_Request";
+	private String TAG_STATUS = "Status_Request_Chat";
 	DefaultHttpClient httpclient;
 	private final int TIME_OUT_MILISEC = 5000;
 	
@@ -62,7 +62,7 @@ public class ChatClient {
 	 */
 	public boolean postMessage(String message, String userId){
 		releaseConnections();
-		String url = this.host + this.pathPostMessage;
+		String url = this.host + this.pathPostMessage;	
 		HttpPost httpost = new HttpPost(url);
 		JSONObject holder = new JSONObject();
 		StringEntity se = null;
@@ -84,9 +84,6 @@ public class ChatClient {
 	    httpost.setHeader("Accept", "application/json");
 	    httpost.setHeader("Content-type", "application/json; charset=UTF-8");
 	    httpost.setHeader("Accept-Encoding", "UTF-8");
-	    BasicHttpParams basicHttpParams = new BasicHttpParams();
-	    HttpConnectionParams.setConnectionTimeout(basicHttpParams, 3000);
-	    HttpConnectionParams.setSoTimeout(basicHttpParams, 3000);
 
 	    try {
 			HttpResponse httpResponse = httpclient.execute(httpost);
